@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Movie Database</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/f300007e95.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./scripts/script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="content-wrapper header__flex">
+        <a href="index.html"
+          ><img class="header__logo" src="./res/logo.png" alt="logotype"
+        /></a>
+        <form class="header__form" id="searchForm">
+          <input
+            class="header__input"
+            id="searchInput"
+            type="text"
+            aria-label="Search"
+          />
+          <button class="header__form-btn" id="searchBtn">Search</button>
+        </form>
+        <a href="./favorites.html" class="header__fav-btn" id="favBtn"
+          >Favorites</a
+        >
+      </div>
+    </header>
+
+    <!-- Trailer Caroussel -->
+    <section>
+      <div class="content-wrapper">
+        <section class="trailers">
+          <div class="slider-container">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="slider">
+              <div id="trailerSlider" class="slide">
+                <iframe
+                  src="https://www.youtube.com/embed/jVZRnnVSQ8k"
+                  allowfullscreen
+                ></iframe>
+                <h3>Pan's Labyrinth</h3>
+              </div>
+              <div class="slide">
+                <iframe
+                  src="https://www.youtube.com/embed/7d_jQycdQGo"
+                  allowfullscreen
+                ></iframe>
+                <h3>Whiplash</h3>
+              </div>
+              <div class="slide">
+                <iframe
+                  src="https://www.youtube.com/embed/EXeTwQWrcwY"
+                  allowfullscreen
+                ></iframe>
+                <h3>The Dark Knight</h3>
+              </div>
+              <div class="slide">
+                <iframe
+                  src="https://www.youtube.com/embed/YoHD9XEInc0"
+                  allowfullscreen
+                ></iframe>
+                <h3>Inception</h3>
+              </div>
+              <div class="slide">
+                <iframe
+                  src="https://www.youtube.com/embed/d96cjJhvlMA"
+                  allowfullscreen
+                ></iframe>
+                <h3>Interstellar</h3>
+              </div>
+              <div class="slide">
+                <iframe
+                  src="https://www.youtube.com/embed/6ZfuNTqbHE8"
+                  allowfullscreen
+                ></iframe>
+                <h3>Avengers: Infinity War</h3>
+              </div>
+              <div class="slide">
+                <iframe
+                  src="https://www.youtube.com/embed/TcMBFSGVi1c"
+                  allowfullscreen
+                ></iframe>
+                <h3>Avengers: Endgame</h3>
+              </div>
+              <div class="slide">
+                <iframe
+                  src="https://www.youtube.com/embed/3dBiNGufIJw"
+                  allowfullscreen
+                ></iframe>
+                <h3>Dune: Part Two</h3>
+              </div>
+            </div>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Our recommended movies section -->
+    <section>
+      <div class="content-wrapper center">
+        <h2 class="popular-title">Our Recommendations</h2>
+        <section id="movieGrid" class="card-container">
+          <div class="card">
+            <img src="images/messi.jpg" alt="Messi" />
+            <h3>Messi</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/pans-labyrinth.jpg" alt="Pan's Labyrinth" />
+            <h3>Pan's Labyrinth</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/game-of-thrones.jpg" alt="Game of Thrones" />
+            <h3>Game of Thrones</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/squid-whale.jpg" alt="The Squid and the Whale" />
+            <h3>The Squid and the Whale</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/toy-story.jpg" alt="Toy Story" />
+            <h3>Toy Story</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/whiplash.jpg" alt="Whiplash" />
+            <h3>Whiplash</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/lotr.jpg" alt="The Lord of the Rings" />
+            <h3>LOTR: The Return of the King</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/heat.jpg" alt="Heat" />
+            <h3>Heat</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/bubble.jpg" alt="Bubble" />
+            <h3>Bubble</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/inception.jpg" alt="Inception" />
+            <h3>Inception</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/interstellar.jpg" alt="Interstellar" />
+            <h3>Interstellar</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+
+          <div class="card">
+            <img src="images/shawshank.jpg" alt="The Shawshank Redemption" />
+            <h3>The Shawshank Redemption</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/godfather1.jpg" alt="The Godfather" />
+            <h3>The Godfather</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/TheDarkKnight.jpg" alt="The Dark Knight" />
+            <h3>The Dark Knight</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/PulpFiction.jpg" alt="Pulp Fiction" />
+            <h3>Pulp Fiction</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/ForrestGump.jpg" alt="Forrest Gump" />
+            <h3>Forrest Gump</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/GodfatherII.jpg" alt="The Godfather Part II" />
+            <h3>The Godfather Part II</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/SchindlerList.jpg" alt="Schindler's List" />
+            <h3>Schindler's List</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img
+              src="images/TheSilenceoftheLambs.jpg"
+              alt="The Silence of the Lambs"
+            />
+            <h3>The Silence of the Lambs</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/Gladiator.jpg" alt="Gladiator" />
+            <h3>Gladiator</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/SavingPrivateRyan.jpg" alt="Saving Private Ryan" />
+            <h3>Saving Private Ryan</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/LionKing.jpg" alt="The Lion King" />
+            <h3>The Lion King</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/TheMatrix.jpg" alt="The Matrix" />
+            <h3>The Matrix</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+          <div class="card">
+            <img src="images/spiritedaway.jpg" alt="Spirited Away" />
+            <h3>Spirited Away</h3>
+            <span class="favorite-icon">&#9733;</span>
+          </div>
+        </section>
+      </div>
+    </section>
+  </body>
+</html>

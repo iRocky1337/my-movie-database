@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/movie-details.css" />
+    <script
+      src="https://kit.fontawesome.com/f300007e95.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./scripts/script.js"></script>
+  </head>
+  <body>
+    <header>
+      <header class="header">
+        <div class="content-wrapper header__flex">
+          <a href="index.html"><img class="header__logo" src="./res/logo.png" alt="logotype"/></a>
+        </div>
+      </header>
+
+    <section class="detail-view-page" id="detailView">
+      <div class="detail-container-page">
+        <img id="detailPoster" alt="Movie Poster" />
+        <div class="detail-text-page">
+          <h1 id="detailTitle"></h1>
+          <p id="ratingGenre"></p>
+          <p id="releaseRuntime"></p>
+
+          <h3>Plot</h3>
+          <p id="detailPlot"></p>
+
+          <h3>Director</h3>
+          <p id="detailDirector"></p>
+
+          <h3>Writer</h3>
+          <p id="detailWriter"></p>
+
+          <h3>Actors</h3>
+          <p id="detailActors"></p>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="./scripts/movie-details.js"></script>
+  </body>
+</html>

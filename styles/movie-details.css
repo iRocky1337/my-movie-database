@@ -1,0 +1,23 @@
+/* movie-details.css */
+.detail-view-page {
+  background-color: #111;
+  color: #fff;
+  padding: 2rem;
+}
+
+.detail-container-page {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.detail-container-page img {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+}
+
+.detail-text-page {
+  max-width: 800px;
+}
