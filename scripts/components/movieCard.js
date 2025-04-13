@@ -1,4 +1,8 @@
-import { getFavorites, toggleFavorite } from "../utils/utils.js";
+import {
+  getFavorites,
+  getFavoritesIds,
+  toggleFavorite,
+} from "../utils/utils.js";
 
 export function renderMovieGrid(movies = null) {
   const movieGrid = document.getElementById("movieGrid");
@@ -16,12 +20,12 @@ export function renderMovieGrid(movies = null) {
             <img src="${movie.Poster}" alt="${movie.Title}" />
             <h3>${movie.Title}</h3>
             <span class="favorite-icon" data-id="${movie.imdbID}">
-                ${getFavorites().includes(movie.imdbID) ? "★" : "☆"}
+                ${getFavoritesIds().includes(movie.imdbID) ? "★" : "☆"}
             </span>
         `;
 
     card.querySelector(".favorite-icon").addEventListener("click", (event) => {
-      toggleFavorite(movie.imdbID);
+      toggleFavorite(movie);
       updateFavoriteIcons();
     });
 
@@ -40,9 +44,7 @@ export function renderFavorites() {
   if (!container || !window.movies) return;
 
   container.innerHTML = "";
-  const favoriteMovies = window.movies.filter((movie) =>
-    getFavorites().includes(movie.imdbID)
-  );
+  const favoriteMovies = getFavorites();
 
   if (favoriteMovies.length === 0) {
     container.innerHTML = "<p>You have no favorited movies.</p>";
@@ -60,7 +62,7 @@ export function renderFavorites() {
         `;
 
     card.querySelector(".favorite-icon").addEventListener("click", () => {
-      toggleFavorite(movie.imdbID);
+      toggleFavorite(movie);
       renderFavorites();
       updateFavoriteIcons();
     });
@@ -69,22 +71,28 @@ export function renderFavorites() {
   });
 }
 
+async function searchOmdbMovies(query) {
+  if (!query) return [];
+  const result = await fetch(
+    `https://www.omdbapi.com/?s=${query}&apikey=8dbc7797`
+  ).then((res) => res.json());
+  if (result.Response === "False") return [];
+  return result.Search;
+}
+
 export function filterMovies(query) {
   if (!window.movies) return;
 
   if (query === "") {
     renderMovieGrid();
   } else {
-    const filteredMovies = window.movies.filter((movie) =>
-      movie.Title.toLowerCase().includes(query)
-    );
-    renderMovieGrid(filteredMovies);
+    searchOmdbMovies(query).then(renderMovieGrid);
   }
 }
 
 export function updateFavoriteIcons() {
   document.querySelectorAll(".favorite-icon").forEach((icon) => {
     const movieId = icon.getAttribute("data-id");
-    icon.textContent = getFavorites().includes(movieId) ? "★" : "☆";
+    icon.textContent = getFavoritesIds().includes(movieId) ? "★" : "☆";
   });
 }

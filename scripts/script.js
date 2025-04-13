@@ -6,11 +6,13 @@ import {
   filterMovies,
   updateFavoriteIcons,
 } from "./components/movieCard.js";
+import { debounce } from "./utils/utils.js";
+
+const filterMoviesDebounced = debounce(filterMovies, 500);
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     window.movies = await fetchMovies();
-    console.log("Movies loaded:", window.movies);
     const isFavoritesPage = window.location.pathname.includes("favorites.html");
 
     if (isFavoritesPage) {
@@ -22,7 +24,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       document
         .getElementById("searchInput")
         .addEventListener("input", (event) => {
-          filterMovies(event.target.value.trim().toLowerCase());
+          const val = event.target.value.trim().toLowerCase();
+          filterMoviesDebounced(val);
         });
     }
 

@@ -1,12 +1,22 @@
 import { fetchMovies } from "./modules/api.js";
 
+async function getOmdbMovieById(id) {
+  if (!id) return null;
+  const res = await fetch(
+    `https://www.omdbapi.com/?i=${id}&apikey=8dbc7797`
+  ).then((res) => res.json());
+  if (res.Response === "False") return null;
+  return res;
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const params = new URLSearchParams(window.location.search);
   const imdbID = params.get("imdbid");
   if (!imdbID) return;
 
   const movies = await fetchMovies();
-  const movie = movies.find((m) => m.imdbID === imdbID);
+  let movie = movies.find((m) => m.imdbID === imdbID);
+  if (!movie) movie = await getOmdbMovieById(imdbID);
   if (!movie) return;
 
   document.getElementById("detailPoster").src =
